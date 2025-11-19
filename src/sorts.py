@@ -1,4 +1,7 @@
 def bubble_sort(a: list[int]) -> list[int]:
+    """
+    Применить сортировку пузырьком к списку
+    """
     for i in range(len(a)-1):
         is_sorted = True
         for j in range(len(a)-1):
@@ -11,6 +14,9 @@ def bubble_sort(a: list[int]) -> list[int]:
 
 
 def quick_sort(a: list[int]) -> list[int]:
+    """
+    Применить быструю сортировку к списку
+    """
     if len(a) <= 1:
         return a
     pivot = a[-1]
@@ -27,6 +33,9 @@ def quick_sort(a: list[int]) -> list[int]:
 
 
 def counting_sort(a: list[int]) -> list[int]:
+    """
+    Применить сортировку подсчетом к списку
+    """
     cnt = [0]*(max(a) + 1)
 
     for i in range(len(a)):
@@ -43,6 +52,9 @@ def counting_sort(a: list[int]) -> list[int]:
 
 
 def radix_sort(a: list[int], base: int = 10) -> list[int]:
+    """
+    Применить поразрядную сортировку к списку
+    """
     digits = len(str(max(a)))
     for n in range(0, digits):
         cnt = [0] * base
@@ -63,6 +75,9 @@ def radix_sort(a: list[int], base: int = 10) -> list[int]:
 
 
 def insertion_sort(a: list[float]) -> list[float]:
+    """
+    Применить вспомогательную сортировку вставками к списку
+    """
     for i in range(1, len(a)):
         key = a[i]
         j = i
@@ -73,6 +88,9 @@ def insertion_sort(a: list[float]) -> list[float]:
 
 
 def bucket_sort(a: list[float], buckets_cnt: int | None = None) -> list[float]:
+    """
+    Применить блочную сортировку к списку
+    """
     if buckets_cnt is None:
         buckets_cnt = 10
 
@@ -86,7 +104,10 @@ def bucket_sort(a: list[float], buckets_cnt: int | None = None) -> list[float]:
     return res
 
 
-def max_heapify(a: list[int], i: int, n: int):
+def max_heapify(a: list[int], i: int, n: int) -> None:
+    """
+    Поставить эл-т с индексом i на правильное место в куче
+    """
     largest = i
     left = 2 * i + 1
     right = 2 * i + 2
@@ -102,6 +123,9 @@ def max_heapify(a: list[int], i: int, n: int):
 
 
 def heap_sort(a: list[int]) -> list[int]:
+    """
+    Применить пирамидальную сортировку к списку
+    """
     n = len(a)
     for i in range(n - 1, -1, -1):
         max_heapify(a, i, n)
